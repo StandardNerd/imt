@@ -1,0 +1,93 @@
+en:
+  matches: &matches
+    label: &label Matches
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: 'ti ti-id-badge'
+    buttons: &buttons
+      new: Add New Match
+      create: Create Match
+      edit: Edit Match
+      update: Update Match
+      destroy: Remove Match
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{match_name}? This will also remove any child resources and can't be undone.
+    match:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Match ID
+      team_id:
+        heading: Team ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+        api_title: *name
+        api_description: *name
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Matches"
+      index: "List Matches"
+      create: "Add a New Match"
+      member_actions: "Actions for an Individual Match"
+      show: "Retrieve a Match"
+      update: "Update a Match"
+      destroy: "Delete a Match"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Matches"
+      contexts:
+        team:
+          header: Matches
+          description: Below is a list of Matches that have been added for %{team_name}.
+          description_empty: No Matches have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{match_name}"
+      header: Match Details
+      description: Below are the details we have for %{match_name}.
+      manage_description: You'll also find options for updating these details or removing %{match_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Match for %{team_name}"
+      header: New Match Details
+      description: Please provide the details of the new Match you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{match_name}"
+      header: Edit Match Details
+      description: You can update the details or settings for %{match_name} below.
+      form: *form
+    notifications:
+      created: Match was successfully created.
+      updated: Match was successfully updated.
+      destroyed: Match was successfully destroyed.
+  account:
+    matches: *matches
+  activerecord:
+    attributes:
+      match:
+        name: *name
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

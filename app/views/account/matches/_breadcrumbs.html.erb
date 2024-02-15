@@ -1,0 +1,8 @@
+<% match ||= @match %>
+<% team ||= @team || match&.team %>
+<%= render 'account/teams/breadcrumbs', team: team %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, team, :matches] %>
+<% if match&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: match.label_string, url: [:account, match] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'matches' %>
